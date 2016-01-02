@@ -2,8 +2,8 @@
 // GENERATED FILE - DO NOT EDIT DIRECTLY
 // *******************************************************
 {
-  "id": "DCBEF2C9-E4F4-4929-82B2-EA7FC9166109",
-  "name": "AzureWebPowerShellDeployment",
+  "id": "3a33c200-b187-11e5-9a35-5769bc563ed2",
+  "name": "AzureWebPowerShellSwap",
   "friendlyName": "ms-resource:loc.friendlyName",
   "description": "ms-resource:loc.description",
   "helpMarkDown": "ms-resource:loc.helpMarkDown",
@@ -12,16 +12,16 @@
     "Build",
     "Release"
   ],
-  "author": "Microsoft Corporation",
+  "author": "Alejandro Melis",
   "version": {
     "Major": 1,
     "Minor": 0,
-    "Patch": 21
+    "Patch": 0
   },
   "demands": [
     "azureps"
   ],
-  "minimumAgentVersion": "1.90.0",
+  "minimumAgentVersion": "1.83.0",
   "inputs": [
     {
       "name": "ConnectedServiceName",
@@ -50,28 +50,20 @@
       }
     },
     {
-      "name": "Slot",
+      "name": "Slot1",
       "type": "string",
-      "label": "ms-resource:loc.input.label.Slot",
+      "label": "ms-resource:loc.input.label.Slot1",
       "defaultValue": "",
-      "required": false,
-      "helpMarkDown": "ms-resource:loc.input.help.Slot"
+      "required": true,
+      "helpMarkDown": "ms-resource:loc.input.help.Slot1"
     },
     {
-      "name": "Package",
-      "type": "filePath",
-      "label": "ms-resource:loc.input.label.Package",
+      "name": "Slot2",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.Slot2",
       "defaultValue": "",
-      "helpMarkDown": "ms-resource:loc.input.help.Package",
-      "required": true
-    },
-    {
-      "name": "doNotDelete",
-      "type": "boolean",
-      "label": "ms-resource:loc.input.label.doNotDelete",
-      "defaultValue": "false",
-      "helpMarkDown": "ms-resource:loc.input.help.doNotDelete",
-      "required": false
+      "required": true,
+      "helpMarkDown": "ms-resource:loc.input.help.Slot2"
     },
     {
       "name": "AdditionalArguments",
@@ -99,7 +91,7 @@
   "instanceNameFormat": "ms-resource:loc.instanceNameFormat",
   "execution": {
     "AzurePowerShell": {
-      "target": "$(currentDirectory)\\Publish-AzureWebDeployment.ps1",
+      "target": "$(currentDirectory)\\Swap-AzureWebApp.ps1",
       "argumentFormat": "",
       "workingDirectory": "$(currentDirectory)"
     }

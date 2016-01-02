@@ -1,8 +1,8 @@
 ﻿{
-  "id": "DCBEF2C9-E4F4-4929-82B2-EA7FC9166109",
+  "id": "3a33c200-b187-11e5-9a35-5769bc563ed2",
   "name": "AzureWebPowerShellSwap",
-  "friendlyName": "Azure Web App Swap",
-  "description": "Swap slots in Azure Web App",
+  "friendlyName": "Azure WebApp Swap",
+  "description": "Swap Azure WebApp slots",
   "helpMarkDown": "[More Information](http://go.microsoft.com/fwlink/?LinkID=613750)",
   "category": "Deploy",
   "visibility": [
@@ -18,7 +18,7 @@
   "demands": [
     "azureps"
   ],
-  "minimumAgentVersion": "1.90.0",
+  "minimumAgentVersion": "1.83.0",
   "inputs": [
     {
       "name": "ConnectedServiceName",
