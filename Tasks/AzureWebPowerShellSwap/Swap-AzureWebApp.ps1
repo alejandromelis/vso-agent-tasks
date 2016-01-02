@@ -40,7 +40,7 @@ $azureWebSiteError = $null
 
 #Swap WebApp slots
 $azureCommand = "Switch-AzureWebsiteSlot"
-$azureCommandArguments = "-Name `"$WebSiteName`" –Force -Slot1 `"$Slot1`" -Slot2 `"$Slot2`" $AdditionalArguments -ErrorVariable publishAzureWebsiteError"
+$azureCommandArguments = "-Name `"$WebSiteName`" -Force -Slot1 `"$Slot1`" -Slot2 `"$Slot2`" $AdditionalArguments -ErrorVariable publishAzureWebsiteError"
 $finalCommand = "$azureCommand $azureCommandArguments"
 Write-Host "$finalCommand"
 Invoke-Expression -Command $finalCommand
