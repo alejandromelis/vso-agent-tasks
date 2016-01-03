@@ -10,7 +10,7 @@ param
     [String] [Parameter(Mandatory = $false)]
     $WebSiteLocation,
 
-    [String] [Parameter(Mandatory = $true)]
+    [String] [Parameter(Mandatory = $false)]
     $Slot1,
 
     [String] [Parameter(Mandatory = $false)]
@@ -33,7 +33,7 @@ Write-Host "Slot1= $Slot1"
 Write-Host "Slot2= $Slot2"
 Write-Host "AdditionalArguments= $AdditionalArguments"
 
-$azureWebSiteError = $null
+$swapAzureWebsiteError = $null
 
 #Swap WebApp slots
 $azureCommand = "Switch-AzureWebsiteSlot"
@@ -46,12 +46,16 @@ if ($Slot2)
 {
     $azureCommandArguments = "$azureCommandArguments -Slot2 `"$Slot2`""
 }
-$azureCommandArguments = "$azureCommandArguments  $AdditionalArguments -ErrorVariable swapAzureWebsiteError"
+if ($AdditionalArguments)
+{
+    $azureCommandArguments = "$azureCommandArguments  $AdditionalArguments"
+}
+$azureCommandArguments = "$azureCommandArguments -ErrorVariable swapAzureWebsiteError"
 $finalCommand = "$azureCommand $azureCommandArguments"
 Write-Host "$finalCommand"
 Invoke-Expression -Command $finalCommand
 
-if (!$publishAzureWebsiteError) 
+if (!$swapAzureWebsiteError) 
 {
      Write-Host "Swap success"
 }
