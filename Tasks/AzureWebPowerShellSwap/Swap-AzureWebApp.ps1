@@ -28,7 +28,6 @@ Write-Verbose "Entering script Swap-AzureWebApp.ps1"
 
 Write-Host "ConnectedServiceName= $ConnectedServiceName"
 Write-Host "WebSiteName= $WebSiteName"
-Write-Host "Package= $Package"
 Write-Host "Slot1= $Slot1"
 Write-Host "Slot2= $Slot2"
 Write-Host "AdditionalArguments= $AdditionalArguments"
