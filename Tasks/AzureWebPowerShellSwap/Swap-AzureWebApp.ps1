@@ -24,9 +24,6 @@ param
 import-module "Microsoft.TeamFoundation.DistributedTask.Task.Internal"
 import-module "Microsoft.TeamFoundation.DistributedTask.Task.Common"
 
-# adding System.Web explicitly, since we use http utility
-Add-Type -AssemblyName System.Web
-
 Write-Verbose "Entering script Swap-AzureWebApp.ps1"
 
 Write-Host "ConnectedServiceName= $ConnectedServiceName"
@@ -40,9 +37,22 @@ $azureWebSiteError = $null
 
 #Swap WebApp slots
 $azureCommand = "Switch-AzureWebsiteSlot"
-$azureCommandArguments = "-Name `"$WebSiteName`" -Force -Slot1 `"$Slot1`" -Slot2 `"$Slot2`" $AdditionalArguments -ErrorVariable publishAzureWebsiteError"
+$azureCommandArguments = "-Name `"$WebSiteName`" -Force"
+if ($Slot1)
+{
+    $azureCommandArguments = "$azureCommandArguments -Slot1 `"$Slot1`""
+}
+if ($Slot2)
+{
+    $azureCommandArguments = "$azureCommandArguments -Slot2 `"$Slot2`""
+}
+$azureCommandArguments = "$azureCommandArguments  $AdditionalArguments -ErrorVariable swapAzureWebsiteError"
 $finalCommand = "$azureCommand $azureCommandArguments"
 Write-Host "$finalCommand"
 Invoke-Expression -Command $finalCommand
 
+if (!$publishAzureWebsiteError) 
+{
+     Write-Host "Swap success"
+}
 Write-Verbose "Leaving script Swap-AzureWebApp.ps1"

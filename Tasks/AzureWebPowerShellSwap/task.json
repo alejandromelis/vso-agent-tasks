@@ -13,7 +13,7 @@
   "version": {
     "Major": 1,
     "Minor": 0,
-    "Patch": 2
+    "Patch": 3
   },
   "demands": [
     "azureps"
@@ -51,7 +51,7 @@
       "type": "string",
       "label": "Slot Origin",
       "defaultValue": "",
-      "required": true,
+      "required": false,
       "helpMarkDown": "Slot Origin"
     },
     {
@@ -60,7 +60,7 @@
       "label": "Slot Destination",
       "defaultValue": "",
       "helpMarkDown": "Slot Destination",
-      "required": true
+      "required": false
     }
   ],
   "dataSourceBindings": [
